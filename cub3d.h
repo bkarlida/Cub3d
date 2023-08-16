@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 12:32:17 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/08/16 12:40:24 by bkarlida         ###   ########.fr       */
+/*   Updated: 2023/08/16 17:02:47 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
 #include <fcntl.h>
 #include "minilbx/mlx.h"
 
-//mlx resim için
 typedef struct s_img{
     void    *window;
     int     *image;
@@ -34,8 +33,6 @@ typedef struct s_img{
     int     endian; 
 }   t_img;
 
-
-//yer ve gök renk kodları
 typedef struct s_color{
     int r;
     int g;
@@ -44,34 +41,57 @@ typedef struct s_color{
 }   t_color;
 
 typedef struct s_texture{
+    void    *image;
     char    *path;
+    char    *data;
     int     use;
-
-    
+    int     w;
+    int     h;
+    int     bpp;
+    int     sizeline;
+    int     endian;    
 }   t_texture;
+
+typedef struct s_player{
+    double  x;
+    double  y;
+    double  dir_x;
+    double  dir_y;
+    double  speed;
+    double  rot_speed;
+
+} t_player;
 
 
 //genel oyun kuralları
 typedef struct s_cub3d{
-    t_img   img;    
-    void    *mlx;
-    char    **map;
-    char    **c_map;
-    char    **x_map;
-    char    **b_map;
-	char 	*map_text;
-    int		max_size;
+    t_img       img;    
+    void        *mlx;
+    char        **map;
+    char        **c_map;
+    char        **x_map;
+    char        **b_map;
+	char 	    *map_text;
+    int		    max_size;
+    int         move[6];
     t_texture   north;
     t_texture   south;
     t_texture   west;
     t_texture   east;
     t_color     sky;
     t_color     floor;
+    t_player    player;
 }   t_cub3d;
 
 //malx
 void    start_mlx(t_cub3d *game);
 void    start_img(t_cub3d *game);
+int     key_press(int key_code, t_cub3d *game);
+int     key_release(int key_code, t_cub3d *game);
+int     x_close(int keycode, t_cub3d *game);
+int     ft_game_loop(t_cub3d *game);
+void    player_move(t_cub3d *game);
+
 
 //utils
 void    ultimate_print(char *str, char c, t_cub3d *game);
@@ -96,6 +116,7 @@ void    map_x_control(t_cub3d *game);
 void	map_char_control(t_cub3d *game, int map_index);
 void    xpm_control(t_cub3d *game);
 void	name_xpm(t_cub3d *game);
+void	open_textures(t_cub3d *game);
 
 
 #endif

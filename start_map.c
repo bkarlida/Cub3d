@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 14:22:18 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/08/16 13:22:08 by bkarlida         ###   ########.fr       */
+/*   Updated: 2023/08/16 17:07:20 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,28 @@ void	start_map(t_cub3d *game, char *map_name)
 	map_add_b(game);
 	map_x_control(game);
 	xpm_control(game);
-	//Map ikiye bölünme controlü yapılacak
+	open_textures(game);
 	int i = 0;
-	// while(game->c_map[i]){
-	// 	printf("%s\n", game->c_map[i]);
-	// 	i++;
-	// }
+	while(game->x_map[i]){
+		printf("%s\n", game->x_map[i]);
+		i++;
+	}
+	//Map ikiye bölünme controlü yapılacak
+}
+
+void	open_textures(t_cub3d *game)
+{
+	game->north.image = mlx_xpm_file_to_image(game->mlx, game->north.path, &(game->north.w), &(game->north.h));
+	game->south.image = mlx_xpm_file_to_image(game->mlx, game->south.path, &(game->south.w), &(game->south.h));
+	game->west.image = mlx_xpm_file_to_image(game->mlx, game->west.path, &(game->west.w), &(game->west.h));
+	game->east.image = mlx_xpm_file_to_image(game->mlx, game->east.path, &(game->east.w), &(game->east.h));
+	if(!game->north.image || !game->south.image || !game->west.image || !game->east.image)
+		ultimate_print("Texture error" , 'r', game);
+	//Resimler destory edilecek path free yapılacak
+	game->north.data = mlx_get_data_addr(game->north.image, &(game->north.bpp), &(game->north.sizeline), &(game->north.endian));
+	game->south.data = mlx_get_data_addr(game->south.image, &(game->south.bpp), &(game->south.sizeline), &(game->south.endian));
+	game->west.data = mlx_get_data_addr(game->west.image, &(game->west.bpp), &(game->west.sizeline), &(game->west.endian));
+	game->east.data = mlx_get_data_addr(game->east.image, &(game->east.bpp), &(game->east.sizeline), &(game->east.endian));	
 }
 
 void	name_xpm(t_cub3d *game)
@@ -73,7 +89,6 @@ void xpm_control(t_cub3d *game)
 	fd[3] = open(game->east.path, O_RDONLY);
 
 	while(i < 4){
-		printf("%d\n", fd[i]);
 		if(fd[i] == -1)
 		{
 			ultimate_print("textures not open", 'r', game);
