@@ -6,7 +6,7 @@
 /*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 14:22:18 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/08/15 18:26:23 by bkarlida         ###   ########.fr       */
+/*   Updated: 2023/08/16 13:22:08 by bkarlida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ void	start_map(t_cub3d *game, char *map_name)
 	int	fd;
 	int	map_index;
 
-	if (map_name_control(map_name)){
+	if (map_name_control(map_name))
+	{
 		ultimate_print("wrong map name", 'r', game);
 		exit(1);
 	}
@@ -33,11 +34,30 @@ void	start_map(t_cub3d *game, char *map_name)
 	xpm_control(game);
 	//Map ikiye bölünme controlü yapılacak
 	int i = 0;
-	
 	// while(game->c_map[i]){
 	// 	printf("%s\n", game->c_map[i]);
 	// 	i++;
 	// }
+}
+
+void	name_xpm(t_cub3d *game)
+{
+	int i;
+	int len;
+
+	i = 0;
+	len = 0;
+	while (game->map[i] != NULL && i < 4)
+	{
+		len = ft_strlen(game->map[i]);
+		if (game->map[i][len - 1] != 'm' || game->map[i][len - 2] != 'p'
+				|| game->map[i][len - 3] != 'x' || game->map[i][len - 4] != '.')
+		{
+			ultimate_print("extension error '.xpm'", 'r', game);
+			exit(0);
+		}
+		i++;
+	}
 }
 
 void xpm_control(t_cub3d *game)
@@ -61,7 +81,7 @@ void xpm_control(t_cub3d *game)
 		}
 		i++;
 	}
-	
+	name_xpm(game);
 }
 
 void map_char_control(t_cub3d *game, int map_index)
@@ -71,7 +91,8 @@ void map_char_control(t_cub3d *game, int map_index)
 		i = 0;
 		while(game->map[map_index][i])
 		{
-			if(game->map[map_index][i] != '1' && game->map[map_index][i] != '0' && game->map[map_index][i] != 'N' && game->map[map_index][i] != ' ' && game->map[map_index][i] != '\0')
+			if(game->map[map_index][i] != '1' && game->map[map_index][i] != '0' && game->map[map_index][i] != 'N'
+				&& game->map[map_index][i] != ' ' && game->map[map_index][i] != '\0' && game->map[map_index][i] != 'S' && game->map[map_index][i] != 'W' && game->map[map_index][i] != 'E')
 			{
 				
 				ultimate_print("map character error", 'r', game);

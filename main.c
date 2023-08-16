@@ -22,7 +22,7 @@ int main(int ac, char **av){
             mlx_hook(vals.img.win, 17, 1L << 2, red_x_close, &vals);
             mlx_loop_hook(vals.mlx, &ft_loop, &vals);
         */
-        mlx_loop(game->mlx);
+        //mlx_loop(game->mlx);
     }
     else{
         ultimate_print("number of erroneous parameters", 'r', game);

@@ -6,7 +6,7 @@
 /*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 12:32:17 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/08/15 18:23:53 by bkarlida         ###   ########.fr       */
+/*   Updated: 2023/08/16 12:40:24 by bkarlida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,8 @@ void	map_add_x(t_cub3d *game);
 void	map_add_b(t_cub3d *game);
 void    map_x_control(t_cub3d *game);
 void	map_char_control(t_cub3d *game, int map_index);
-void xpm_control(t_cub3d *game);
+void    xpm_control(t_cub3d *game);
+void	name_xpm(t_cub3d *game);
 
 
 #endif
