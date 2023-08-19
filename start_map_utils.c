@@ -3,138 +3,118 @@
 /*                                                        :::      ::::::::   */
 /*   start_map_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/08 17:17:19 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/08/15 15:34:04 by bkarlida         ###   ########.fr       */
+/*   Created: 2023/08/19 13:09:23 by muerdoga          #+#    #+#             */
+/*   Updated: 2023/08/19 14:11:09 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int start_textures(t_cub3d *game){
-    /*
-        NO, SO, EA, WE, F, C değerlerini yakala
-    */
-    int i;
-    int counter;
+void    map_name_control(char *map_name)
+{
+	int	len;
 
-    i = 0;
-    counter = 0;
-    while(game->map[i] && counter < 6){
-        if(ft_strlen(game->map[i]) > 3)
-            counter += extract_data(game, i);
-        i++;
-    }
-    if(counter == 6 && game->map[i])
-        return (i);
-    else
-        exit(1);
-}
-
-int extract_data(t_cub3d *game, int i){
-    if(texture_path(game, i, "NO", &game->north.path) == 1 && game->north.use == 0)
-    {
-        game->north.use = 1;   
-        return (1);
-    }
-    else if(texture_path(game, i, "SO", &game->south.path) == 1 && game->south.use == 0)
-        {
-        game->south.use = 1;   
-        return (1);
-    }
-    else if(texture_path(game, i, "EA", &game->east.path) == 1 && game->east.use == 0)
-        {
-        game->east.use = 1;   
-        return (1);
-    }
-    else if(texture_path(game, i, "WE", &game->west.path) == 1 && game->west.use == 0)
-        {
-        game->west.use = 1;   
-        return (1);
-    }
-    else if(take_color(game, i, "F", &game->floor) == 1 && game->floor.use == 0)
-        {
-        game->floor.use = 1;   
-        return (1);
-    }
-    else if(take_color(game, i, "C", &game->sky) == 1 && game->sky.use == 0)
-        {
-        game->sky.use = 1;   
-        return (1);
-    }
-    else{
-        ultimate_print("incorrect value", 'r', game);
-        return (10);
-    }
-}
-
-int texture_path(t_cub3d *game, int i, char *key, char **path){
-    char	*str;
-
-	if (ft_strnstr(game->map[i], key, 4) == game->map[i]
-		&& ft_strnstr(game->map[i], key, 4)[2] == ' ')
+	len = ft_strlen(map_name);
+	if (len > 4)
 	{
-		str = ft_strnstr(game->map[i], key, 4) + 2;
-		while (*str >= 9 && *str <= 13 || *str == ' ')
-			str++;
-		if (ft_isprint(*str))
-		{
-            *path = malloc(sizeof(char *) * (ft_strlen(str) + 2));
-			ft_strlcpy(*path, str, (ft_strlen(str) + 2));
-			return (1);
-		}
+		if (!(map_name[len - 1] == 'b' && map_name[len - 2] == 'u' 
+            && map_name[len - 3] == 'c' && map_name[len - 4] == '.'))
+        {
+            color_print("map name  error", 'r');
+            exit(1);
+        }          
 	}
-	return (0);
-}
-
-int take_color(t_cub3d *game, int i, char *key, t_color *color){
-    char    *str;
-
-    if(ft_strnstr(game->map[i], key, 2) == game->map[i]
-		&& ft_strnstr(game->map[i], key, 4)[1] == ' ')
-	{
-        str = ft_strnstr(game->map[i], key, 2) + 1;
-        while((*str >= 9 && *str <= 13 )|| *str == ' ')
-            str++;
-        return take_color_number(game, color, str);         
-    }
-    return (0);
-}
-
-int take_color_number(t_cub3d *game, t_color *color, char *str){
-    int i;
-    int j;
-    
-    char **rgb;
-    i = 0;
-    j = 0;
-    rgb = ft_split(str, ',');
-    while(rgb[i]){
-        if(ft_atoi(rgb[i]) >= 0 && ft_atoi(rgb[i]) <= 255)
-            j++;
-        i++;
-    }
-    if(j == 3)
+	else
     {
-        color->r = ft_atoi(rgb[0]);
-        color->g = ft_atoi(rgb[1]);  
-        color->b = ft_atoi(rgb[2]);
+        color_print("map name  error", 'r');
+        exit(1);
     }
-    else{
-        i = 0;
-        while(rgb[i]){
-            free(rgb[i]);
-            i++;
-        }
-        free(rgb);
-        return (0);
-    }
-    i = 0;
-    while(rgb[i]){
-        free(rgb[i]);
-        i++;
-    }
-    free(rgb);
-    return (1);
 }
+
+int	file_control(t_cub3d *game, char *map_name)
+{
+	int	fd;
+
+	fd = open(map_name, O_RDONLY);
+	if (fd == -1)
+	{
+		color_print("file could not be opened", 'r');
+		exit(1);
+	}
+	else
+		return (fd);
+}
+
+char	**file_read(t_cub3d *game, int fd)
+{
+	char	*text;
+	char	*tmp;
+	char	**map;
+
+	text = get_next_line(fd);
+	if (!text)
+	{
+		close(fd);
+		free(text);
+		color_print("file is empty or could not be opened", 'r');
+		exit(1);
+	}
+	while (1)
+	{
+		tmp = get_next_line(fd);
+		if (!tmp)
+			break ;
+		text = ft_strjoin(text, tmp);
+		free(tmp);
+	}
+	map = ft_split(text, '\n');
+	free(text);
+	return (map);
+}
+
+void map_char_control(t_cub3d *game)
+{
+    int map_index;
+	int i;
+    
+    map_index = 6;
+	while(game->map[map_index]){
+		i = 0;
+		while(game->map[map_index][i])
+		{
+			if(game->map[map_index][i] != '1' && game->map[map_index][i] != '0' && game->map[map_index][i] != 'N'
+				&& game->map[map_index][i] != ' ' && game->map[map_index][i] != '\0' && game->map[map_index][i] != 'S' && game->map[map_index][i] != 'W' && game->map[map_index][i] != 'E')
+			{
+				
+				color_print("map character error", 'r');
+				exit(1);
+			}
+			i++;
+		}
+		map_index++;
+	}
+}
+
+void copy_map(t_cub3d *game){
+	int i;
+	int j;
+	int map_index;
+
+    map_index = 6;
+	i = 0;
+	j = map_index;
+	while(game->map[j++])
+		i++;
+	game->c_map = malloc(sizeof(char *) * i + 1);
+	i = 0;
+	while(game->map[map_index])
+	{
+		game->c_map[i] = ft_strdup(game->map[map_index]);
+		i++;
+		map_index++;
+	}
+	game->c_map[i] = NULL;
+}
+
