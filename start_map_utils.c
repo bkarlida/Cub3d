@@ -6,7 +6,7 @@
 /*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 13:09:23 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/08/19 16:09:47 by muerdoga         ###   ########.fr       */
+/*   Updated: 2023/08/19 17:41:41 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void map_char_control(t_cub3d *game)
             if(game->map[map_index][i] == 'N' || game->map[map_index][i] == 'S' || game->map[map_index][i] == 'W' || game->map[map_index][i] == 'E')
                 player_count++;
 			if(game->map[map_index][i] != '1' && game->map[map_index][i] != '0' && game->map[map_index][i] != 'N'
-				&& game->map[map_index][i] != ' ' && game->map[map_index][i] != '\t' && game->map[map_index][i] != '\0' && game->map[map_index][i] != 'S' && game->map[map_index][i] != 'W' && game->map[map_index][i] != 'E')
+				&& game->map[map_index][i] != ' ' && game->map[map_index][i] != '\0' && game->map[map_index][i] != 'S' && game->map[map_index][i] != 'W' && game->map[map_index][i] != 'E')
 			{
 				
 				color_print("map character error", 'r');
@@ -103,7 +103,6 @@ void map_char_control(t_cub3d *game)
 	}
     if(player_count != 1)
     {
-        printf("%d\n", player_count);
 		color_print("player count error", 'r');
 		exit(1);
 	} 
@@ -119,7 +118,7 @@ void copy_map(t_cub3d *game){
 	j = map_index;
 	while(game->map[j++])
 		i++;
-	game->c_map = malloc(sizeof(char *) * i + 1);
+	game->c_map = malloc(sizeof(char *) * (i + 2));
 	i = 0;
 	while(game->map[map_index])
 	{
