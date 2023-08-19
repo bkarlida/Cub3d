@@ -6,7 +6,7 @@
 /*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 12:32:17 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/08/19 14:03:15 by muerdoga         ###   ########.fr       */
+/*   Updated: 2023/08/19 15:01:07 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ typedef struct s_cub3d{
 	int         move[6];
 	
 	char        **c_map;
+	char		*map_text;
 	
 	t_texture   north;
 	t_texture   south;
@@ -95,7 +96,9 @@ int     take_color(t_cub3d *game, int i, char *key, t_color *color);
 int     take_color_number(t_cub3d *game, t_color *color, char *str);
 void    map_char_control(t_cub3d *game);
 void	copy_map(t_cub3d *game);
-
+void	xpm_control(t_cub3d *game);
+void	name_xpm(t_cub3d *game);
+void	map_division_control(t_cub3d *game);
 
 //Tool
 void    start_game(t_cub3d *game);

@@ -1,5 +1,5 @@
 SRCS = 	main.c start_map.c gnl/get_next_line.c gnl/get_next_line_utils.c \
-		start_map_utils.c tools.c textures_utils.c 
+		start_map_utils.c tools.c textures_utils.c  start_map_utils2.c
 OBJS = $(SRCS:.c=.o)
 CC = gcc
 MFLAGS = ./minilbx/libmlx.a
