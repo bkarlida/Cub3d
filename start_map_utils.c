@@ -6,7 +6,7 @@
 /*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 13:09:23 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/08/19 15:19:00 by muerdoga         ###   ########.fr       */
+/*   Updated: 2023/08/19 16:09:47 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ char	**file_read(t_cub3d *game, int fd)
 		text = ft_strjoin(text, tmp);
 		free(tmp);
 	}
-    game->map_text = text;
+    game->map_text = ft_strdup(text);
 	map = ft_split(text, '\n');
 	free(text);
 	return (map);
@@ -90,7 +90,7 @@ void map_char_control(t_cub3d *game)
             if(game->map[map_index][i] == 'N' || game->map[map_index][i] == 'S' || game->map[map_index][i] == 'W' || game->map[map_index][i] == 'E')
                 player_count++;
 			if(game->map[map_index][i] != '1' && game->map[map_index][i] != '0' && game->map[map_index][i] != 'N'
-				&& game->map[map_index][i] != ' ' && game->map[map_index][i] != '\0' && game->map[map_index][i] != 'S' && game->map[map_index][i] != 'W' && game->map[map_index][i] != 'E')
+				&& game->map[map_index][i] != ' ' && game->map[map_index][i] != '\t' && game->map[map_index][i] != '\0' && game->map[map_index][i] != 'S' && game->map[map_index][i] != 'W' && game->map[map_index][i] != 'E')
 			{
 				
 				color_print("map character error", 'r');
