@@ -6,7 +6,7 @@
 /*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 13:09:27 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/08/19 18:28:51 by muerdoga         ###   ########.fr       */
+/*   Updated: 2023/08/19 21:12:39 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,5 @@ void start_map(t_cub3d *game, char *map_name){
 	map_cover_x(game);
 	map_cover_b(game);
 	map_x_control(game);
-	
 }
 

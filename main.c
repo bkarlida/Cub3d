@@ -6,11 +6,20 @@
 /*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 13:09:20 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/08/19 13:19:21 by muerdoga         ###   ########.fr       */
+/*   Updated: 2023/08/19 21:11:31 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int ft_game_loop(t_cub3d *game)
+{
+    //player_move(game);
+
+
+    
+    return (0);
+}
 
 int main(int ac, char **av){
     t_cub3d *game;
@@ -19,6 +28,12 @@ int main(int ac, char **av){
         game = malloc(sizeof(t_cub3d));
         start_game(game);
         start_map(game, av[1]);
+        start_mlx(game);
+        mlx_hook(game->img.window, 2, 0, key_press, game);
+	    mlx_hook(game->img.window, 3, 0, key_release, game);
+	    mlx_hook(game->img.window, 17, 1L << 2, x_close, game);
+        mlx_loop_hook(game->mlx, &ft_game_loop, game);
+        mlx_loop(game->mlx);
     }
     else{
         color_print("number of erroneous parameters", 'r');
@@ -27,6 +42,9 @@ int main(int ac, char **av){
 
 void start_game(t_cub3d *game){
     game->map = NULL;
+    game->map = NULL;
+    game->c_map = NULL;
+    game->x_map = NULL;
     
     game->north.path = NULL;
     game->south.path = NULL;
@@ -39,4 +57,11 @@ void start_game(t_cub3d *game){
     game->west.use = 0;
     game->floor.use = 0;
     game->sky.use = 0;
+
+    game->move[0] = 0;
+    game->move[1] = 0;
+    game->move[2] = 0;
+    game->move[3] = 0;
+    game->move[4] = 0;
+    game->move[5] = 0;
 }

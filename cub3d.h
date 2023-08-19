@@ -6,7 +6,7 @@
 /*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 12:32:17 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/08/19 18:19:28 by muerdoga         ###   ########.fr       */
+/*   Updated: 2023/08/19 21:06:43 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,14 @@ void    color_print(char *msg, char color);
 
 
 //Mlx
-
+void	start_mlx(t_cub3d *game);
+void	open_textures(t_cub3d *game);
+void	start_img(t_cub3d *game);
+int		x_close(int keycode, t_cub3d *game);
+int		key_press(int key_code, t_cub3d *game);
+int		key_release(int key_code, t_cub3d *game);
+void	start_img(t_cub3d *game);
+int		ft_game_loop(t_cub3d *game);
 
 
 
