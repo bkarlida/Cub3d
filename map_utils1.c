@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   start_map_utils.c                                  :+:      :+:    :+:   */
+/*   map_utils1.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 13:09:23 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/08/19 17:41:41 by muerdoga         ###   ########.fr       */
+/*   Updated: 2023/08/19 18:39:47 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ void    map_name_control(char *map_name)
 		if (!(map_name[len - 1] == 'b' && map_name[len - 2] == 'u' 
             && map_name[len - 3] == 'c' && map_name[len - 4] == '.'))
         {
-            color_print("map name  error", 'r');
+            color_print("map name error", 'r');
             exit(1);
         }          
 	}
 	else
     {
-        color_print("map name  error", 'r');
+        color_print("map name error", 'r');
         exit(1);
     }
 }
