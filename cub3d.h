@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 12:32:17 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/08/26 14:06:28 by muerdoga         ###   ########.fr       */
+/*   Updated: 2023/08/26 20:18:52 by bkarlida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,9 @@ typedef struct s_cub3d{
 	int         move[6];
 	int			loc_x;
 	int			loc_y;
+	int			m_old_pos_y;
+	int			m_old_pos_x;
+	int			lock;
 	int			x;
 	int			y;
 	double		wall_x;
@@ -91,6 +94,7 @@ typedef struct s_cub3d{
 	int			draw_end;
 	int			line_height;
 	double		camera_x;
+	double		scale;
 	double		ray_dir_x;
 	double		ray_dir_y;
 	double		side_dist_x;
@@ -103,6 +107,8 @@ typedef struct s_cub3d{
 	int			step_y;
 	int			hit;
 	int			side;
+	int			map_wd;
+	int			map_he;
 	double		perp_wall_dist;
 	
 	char        **c_map;
@@ -155,9 +161,17 @@ void	start_img(t_cub3d *game);
 int		ft_game_loop(t_cub3d *game);
 
 //Game
-void	player_move(t_cub3d *game);
-void	game_arithmetic(t_cub3d *game);
-
-
+void			player_move(t_cub3d *game);
+void			game_arithmetic(t_cub3d *game);
+void			calc_texture_pixel_color(t_cub3d *game);
+void			print_player(t_cub3d *vals, int x, int y, double scale);
+void			print_mini_map(t_cub3d *game);
+void			put_px_img(t_cub3d *f, int x, int y, int color);
+int				create_trgb(int t, int r, int g, int b);
+unsigned int	get_pixel_in_tex(t_texture tex, int x, int y);
+void			rotate_with_mouse(t_cub3d *vals);
+void			rotate_left(t_cub3d *vals);
+void			rotate_right(t_cub3d *vals);
+void			draw_pause(t_cub3d *vals);
 
 #endif

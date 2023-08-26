@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 13:09:20 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/08/26 13:47:40 by muerdoga         ###   ########.fr       */
+/*   Updated: 2023/08/26 20:38:16 by bkarlida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,26 @@
 
 int ft_game_loop(t_cub3d *game)
 {
+    if (game->lock)
+	{
+		mlx_mouse_show();
+		return (0);
+	}
     player_move(game); // hız ayarlama ve hareketler burada
-    // game->m_old_pos_x = WIDTH / 2;
-	// game->m_old_pos_y = HEIGHT / 2;
-	 game->loc_x = WIDTH / 2;
-	 game->loc_y = HEIGHT / 2;
-     game_arithmetic(game);
-    
+    	mlx_mouse_get_pos(game->img.window, &(game->loc_x), &(game->loc_y));
+	if (game->loc_x - game->m_old_pos_x != 0)
+		rotate_with_mouse(game);
+	mlx_mouse_move(game->img.window, WIDTH / 2, HEIGHT / 2);
+    game->m_old_pos_x = WIDTH / 2;
+	game->m_old_pos_y = HEIGHT / 2;
+	game->loc_x = WIDTH / 2;
+	game->loc_y = HEIGHT / 2;
+    game->map_wd = ft_strlen(game->c_map[0]);
+    game_arithmetic(game);
+    print_mini_map(game);
+	print_player(game, game->x, game->y, game->scale);
+	mlx_put_image_to_window(game->mlx, game->img.window, game->img.image, 0, 0);
+    return(0);
 }
 
 int main(int ac, char **av){
@@ -40,6 +53,7 @@ int main(int ac, char **av){
     else{
         color_print("number of erroneous parameters", 'r');
     }
+    return(0);
 }
 
 void start_game(t_cub3d *game){
@@ -66,4 +80,5 @@ void start_game(t_cub3d *game){
     game->move[3] = 0;
     game->move[4] = 0;
     game->move[5] = 0;
+    game->lock = 0;
 }
