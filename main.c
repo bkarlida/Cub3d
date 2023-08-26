@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 13:09:20 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/08/23 14:32:35 by bkarlida         ###   ########.fr       */
+/*   Updated: 2023/08/26 13:47:40 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int ft_game_loop(t_cub3d *game)
 	// game->m_old_pos_y = HEIGHT / 2;
 	 game->loc_x = WIDTH / 2;
 	 game->loc_y = HEIGHT / 2;
-     game_is_arithmetic(game);
+     game_arithmetic(game);
     
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 12:32:17 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/08/24 12:11:19 by bkarlida         ###   ########.fr       */
+/*   Updated: 2023/08/26 14:06:28 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 #include "./gnl/get_next_line.h"
 #include <fcntl.h>
 #include "minilbx/mlx.h"
+#include <math.h>
 
 typedef struct s_img{
 	void    *window;
@@ -64,6 +65,8 @@ typedef struct s_player{
 	double  dir_y;
 	double  speed;
 	double  rot_speed;
+	double	plane_x;
+	double	plane_y;
 
 } t_player;
 
@@ -81,6 +84,26 @@ typedef struct s_cub3d{
 	int			x;
 	int			y;
 	double		wall_x;
+	double		tex_x;
+	double		step;
+	double		tex_pos;
+	int			draw_start;
+	int			draw_end;
+	int			line_height;
+	double		camera_x;
+	double		ray_dir_x;
+	double		ray_dir_y;
+	double		side_dist_x;
+	double		side_dist_y;
+	double		delta_dist_x;
+	double		delta_dist_y;
+	int			map_x;
+	int			map_y;
+	int			step_x;
+	int			step_y;
+	int			hit;
+	int			side;
+	double		perp_wall_dist;
 	
 	char        **c_map;
 	char		**x_map;
@@ -131,7 +154,9 @@ int		key_release(int key_code, t_cub3d *game);
 void	start_img(t_cub3d *game);
 int		ft_game_loop(t_cub3d *game);
 
-
+//Game
+void	player_move(t_cub3d *game);
+void	game_arithmetic(t_cub3d *game);
 
 
 
