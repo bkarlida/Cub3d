@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 13:09:20 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/08/19 21:11:31 by muerdoga         ###   ########.fr       */
+/*   Updated: 2023/08/23 14:32:35 by bkarlida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 int ft_game_loop(t_cub3d *game)
 {
-    //player_move(game);
-
-
+    player_move(game); // hız ayarlama ve hareketler burada
+    // game->m_old_pos_x = WIDTH / 2;
+	// game->m_old_pos_y = HEIGHT / 2;
+	 game->loc_x = WIDTH / 2;
+	 game->loc_y = HEIGHT / 2;
+     game_is_arithmetic(game);
     
-    return (0);
 }
 
 int main(int ac, char **av){

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 12:32:17 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/08/19 21:06:43 by muerdoga         ###   ########.fr       */
+/*   Updated: 2023/08/24 12:11:19 by bkarlida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 #define RED     "\033[31m"
 #define GREEN   "\033[32m"
 #define YELLOW  "\033[33m"
+# define WIDTH 800
+# define HEIGHT 600
+# define TEX_W 64
+# define TEX_H 64
+# define PI 3.141592653589793
 
 #include <stdio.h>
 #include "./libft/libft.h"
@@ -71,6 +76,11 @@ typedef struct s_cub3d{
 	char        **map;
 	int		    max_size;
 	int         move[6];
+	int			loc_x;
+	int			loc_y;
+	int			x;
+	int			y;
+	double		wall_x;
 	
 	char        **c_map;
 	char		**x_map;
