@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 12:32:17 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/08/26 20:18:52 by bkarlida         ###   ########.fr       */
+/*   Updated: 2023/08/27 12:06:11 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,14 +164,14 @@ int		ft_game_loop(t_cub3d *game);
 void			player_move(t_cub3d *game);
 void			game_arithmetic(t_cub3d *game);
 void			calc_texture_pixel_color(t_cub3d *game);
-void			print_player(t_cub3d *vals, int x, int y, double scale);
+void			print_player(t_cub3d *game, int x, int y, double scale);
 void			print_mini_map(t_cub3d *game);
 void			put_px_img(t_cub3d *f, int x, int y, int color);
 int				create_trgb(int t, int r, int g, int b);
 unsigned int	get_pixel_in_tex(t_texture tex, int x, int y);
-void			rotate_with_mouse(t_cub3d *vals);
-void			rotate_left(t_cub3d *vals);
-void			rotate_right(t_cub3d *vals);
-void			draw_pause(t_cub3d *vals);
+void			rotate_with_mouse(t_cub3d *game);
+void			rotate_left(t_cub3d *game);
+void			rotate_right(t_cub3d *game);
+void			draw_pause(t_cub3d *game);
 
 #endif

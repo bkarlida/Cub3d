@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_key.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 21:05:09 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/08/26 20:18:59 by bkarlida         ###   ########.fr       */
+/*   Updated: 2023/08/27 12:05:54 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	x_close(int keycode, t_cub3d *game)
 	return (0);
 }
 
-void	draw_pause(t_cub3d *vals)
+void	draw_pause(t_cub3d *game)
 {
 	int	i;
 	int	j;
@@ -29,16 +29,16 @@ void	draw_pause(t_cub3d *vals)
 	{
 		j = HEIGHT / 3 - 1;
 		while (++j < (2 * HEIGHT) / 3)
-			put_px_img(vals, i, j, create_trgb(50, 255, 255, 255));
+			put_px_img(game, i, j, create_trgb(50, 255, 255, 255));
 	}
 	i = (17 * WIDTH) / 32 - 1;
 	while (++i < (5 * WIDTH) / 8)
 	{
 		j = HEIGHT / 3 - 1;
 		while (++j < (2 * HEIGHT) / 3)
-			put_px_img(vals, i, j, create_trgb(50, 255, 255, 255));
+			put_px_img(game, i, j, create_trgb(50, 255, 255, 255));
 	}
-	mlx_put_image_to_window(vals->mlx, vals->img.window, vals->img.image, 0, 0);
+	mlx_put_image_to_window(game->mlx, game->img.window, game->img.image, 0, 0);
 }
 
 int	key_press(int key_code, t_cub3d *game)

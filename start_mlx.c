@@ -6,16 +6,13 @@
 /*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 21:03:13 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/08/19 21:12:47 by muerdoga         ###   ########.fr       */
+/*   Updated: 2023/08/27 13:44:46 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 void start_mlx(t_cub3d *game){
-    game->mlx = mlx_init();
-    game->img.window = mlx_new_window(game->mlx, 800, 600, "Cub3D");
-    start_img(game);
     open_textures(game);
 }
 

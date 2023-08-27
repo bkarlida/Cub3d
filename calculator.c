@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   calculator.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 14:33:21 by bkarlida          #+#    #+#             */
-/*   Updated: 2023/08/26 19:33:29 by bkarlida         ###   ########.fr       */
+/*   Updated: 2023/08/27 13:10:41 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	calc_frame_init(t_cub3d *game)
 	game->map_x = (int) game->player.x;
 	game->map_y = (int) game->player.y;
 	if (game->ray_dir_x == 0)
-		game->delta_dist_x = 1e30;
+		game->delta_dist_x = 1e30; 
 	else
 		game->delta_dist_x = fabs(1 / game->ray_dir_x);
 	if (game->ray_dir_y == 0)
@@ -74,7 +74,7 @@ void	calc_wall_height(t_cub3d *game)
 			game->map_y += game->step_y;
 			game->side = 1;
 		}
-		if (game->map[game->map_y][game->map_x] > 0)
+		if (game->b_map[game->map_y][game->map_x] > 0)
 			game->hit = 1;
 	}
 	if (game->side == 0)

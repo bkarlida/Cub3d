@@ -6,7 +6,7 @@
 /*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 13:36:10 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/08/19 13:51:53 by muerdoga         ###   ########.fr       */
+/*   Updated: 2023/08/27 11:41:38 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void take_textures(t_cub3d *game){
 
     i = 0;
     counter = 0;
-    while(game->map[i] && ft_strnstr(game->map[i], "1111" , 5) == NULL){
+    while(game->map[i] && counter < 6){
         if(ft_strlen(game->map[i]) > 3)
             counter += extract_data(game, i);
         i++;
