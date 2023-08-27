@@ -6,7 +6,7 @@
 /*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 14:33:21 by bkarlida          #+#    #+#             */
-/*   Updated: 2023/08/27 13:10:41 by muerdoga         ###   ########.fr       */
+/*   Updated: 2023/08/27 16:32:16 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	calc_wall_height(t_cub3d *game)
 			game->map_y += game->step_y;
 			game->side = 1;
 		}
-		if (game->b_map[game->map_y][game->map_x] > 0)
+		if (game->b_map[game->map_y][game->map_x] > '0')
 			game->hit = 1;
 	}
 	if (game->side == 0)

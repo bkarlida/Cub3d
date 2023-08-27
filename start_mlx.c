@@ -6,7 +6,7 @@
 /*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 21:03:13 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/08/27 13:44:46 by muerdoga         ###   ########.fr       */
+/*   Updated: 2023/08/27 16:37:03 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void start_mlx(t_cub3d *game){
     open_textures(game);
+    find_player(game);
+    player_first_rotate(game);
 }
 
 void start_img(t_cub3d *game){

@@ -6,7 +6,7 @@
 /*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 13:09:20 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/08/27 14:06:27 by muerdoga         ###   ########.fr       */
+/*   Updated: 2023/08/27 16:40:41 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,15 +92,11 @@ int ft_game_loop(t_cub3d *game)
 		mlx_mouse_show();
 		return (0);
 	}
-    find_player(game);
-    player_first_rotate(game);
-    
     player_move(game);
     mlx_mouse_get_pos(game->img.window, &(game->loc_x), &(game->loc_y));
-	if (game->loc_x - game->m_old_pos_x != 0)
+    if (game->loc_x - game->m_old_pos_x != 0)
 		rotate_with_mouse(game);
 	mlx_mouse_move(game->img.window, WIDTH / 2, HEIGHT / 2);
-    
     game->m_old_pos_x = WIDTH / 2;
 	game->m_old_pos_y = HEIGHT / 2;
 	game->loc_x = WIDTH / 2;
