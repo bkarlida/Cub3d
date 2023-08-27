@@ -6,7 +6,7 @@
 /*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 13:09:20 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/08/27 16:56:25 by muerdoga         ###   ########.fr       */
+/*   Updated: 2023/08/27 17:20:58 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ void find_player(t_cub3d *game){
 		{
 			if (is_user_char(game->b_map[y][x]))
 			{
-				game->player.x = (double) x + 0.5;
-				game->player.y = (double) y + 0.5;
+				game->player.x = (double) x + 1.5;
+				game->player.y = (double) y + 1.5;
 			}
 			x++;
 		}
