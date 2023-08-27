@@ -6,7 +6,7 @@
 /*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 13:09:20 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/08/27 17:20:58 by muerdoga         ###   ########.fr       */
+/*   Updated: 2023/08/27 19:02:37 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,16 @@ void find_player(t_cub3d *game){
 		x = 0;
 		while (game->b_map[y][x])
 		{
+            
 			if (is_user_char(game->b_map[y][x]))
 			{
-				game->player.x = (double) x + 1.5;
-				game->player.y = (double) y + 1.5;
+				game->player.x = (double) x + 0.5;
+				game->player.y = (double) y + 0.5;
 			}
 			x++;
 		}
 		y++;
 	}
-    printf("x: %f\n", game->player.x);
-    printf("y: %f\n", game->player.y);
-
 }
 
 void	fill_player_dir(t_cub3d *game, double x, double y)
@@ -122,11 +120,14 @@ int main(int ac, char **av){
 	    mlx_hook(game->img.window, 3, 0, key_release, game);
 	    mlx_hook(game->img.window, 17, 1L << 2, x_close, game);
         mlx_loop_hook(game->mlx, &ft_game_loop, game);
+        free_map(game, game->map);
         mlx_loop(game->mlx);
     }
     else{
         color_print("number of erroneous parameters", 'r');
     }
+    mlx_destroy_window(game->mlx, game->img.window);
+	mlx_destroy_image(game->mlx, game->img.image);
     return(0);
 }
 

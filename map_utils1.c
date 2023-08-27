@@ -6,7 +6,7 @@
 /*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 13:09:23 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/08/27 12:50:09 by muerdoga         ###   ########.fr       */
+/*   Updated: 2023/08/27 19:30:23 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int	file_control(t_cub3d *game, char *map_name)
 char	**file_read(t_cub3d *game, int fd)
 {
 	char	*text;
+	char	*a;
 	char	*tmp;
 	char	**map;
 
@@ -57,21 +58,34 @@ char	**file_read(t_cub3d *game, int fd)
 	if (!text)
 	{
 		close(fd);
-		free(text);
-		color_print("file is empty or could not be opened", 'r');
+		color_print("File is empty or could not be opened", 'r');
 		exit(1);
 	}
+
 	while (1)
 	{
 		tmp = get_next_line(fd);
 		if (!tmp)
-			break ;
-		text = ft_strjoin(text, tmp);
+			break;
+			a = ft_strdup(text);
+			free(text);
+			
+		text = ft_strjoin(a, tmp);
 		free(tmp);
+		free(a);
 	}
-    game->map_text = ft_strdup(text);
+
+	game->map_text = ft_strdup(text);
 	map = ft_split(text, '\n');
+
 	free(text);
+
+	if (!map)
+	{
+		close(fd);
+		color_print("Failed to split text into map", 'r');
+		exit(1);
+	}
 	return (map);
 }
 

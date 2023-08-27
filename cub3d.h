@@ -6,7 +6,7 @@
 /*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 12:32:17 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/08/27 16:37:45 by muerdoga         ###   ########.fr       */
+/*   Updated: 2023/08/27 18:15:44 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,5 +175,6 @@ void			rotate_right(t_cub3d *game);
 void			draw_pause(t_cub3d *game);
 void 			find_player(t_cub3d *game);
 void 			player_first_rotate(t_cub3d *game);
+void			free_map(t_cub3d *game, char **map);
 
 #endif

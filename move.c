@@ -6,7 +6,7 @@
 /*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 16:03:12 by bkarlida          #+#    #+#             */
-/*   Updated: 2023/08/27 17:16:49 by muerdoga         ###   ########.fr       */
+/*   Updated: 2023/08/27 17:45:42 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,10 @@ void	move_right(t_cub3d *game)
 			* game->player.speed)][(int)(game->player.x)] == '0')
 		game->player.y -= -game->player.dir_x * game->player.speed;
 }
-	
+
 void	player_move(t_cub3d *game)
 {
-	
+    game->b_map[(int)game->player.y][(int)game->player.x] = '0';
 	if ((game->move[0] || game->move[1])
 		&& (game->move[2] || game->move[3]))
 	game->player.speed = 0.06 / sqrt(2);
