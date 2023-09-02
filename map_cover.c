@@ -6,7 +6,7 @@
 /*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 17:09:44 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/09/02 18:42:07 by muerdoga         ###   ########.fr       */
+/*   Updated: 2023/09/02 20:07:57 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	map_cover_x_utils(t_cub3d *game, char *temp, int *y)
 		(*y)++;
 	}
 	j = 0;
+	game->x_map[*y + 1] = malloc(game->max_size + 4);
 	while (j < game->max_size + 2)
 	{
 		temp = game->x_map[*y + 1];
