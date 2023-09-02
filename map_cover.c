@@ -6,7 +6,7 @@
 /*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 17:09:44 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/09/02 13:55:25 by bkarlida         ###   ########.fr       */
+/*   Updated: 2023/09/02 15:38:31 by bkarlida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ void	map_cover_b_utils(t_cub3d *game, char *temp)
 		game->b_map[y + 1][j] = 'B';
 	game->b_map[y + 1][game->max_size + 4] = '\0';
 	game->b_map[y + 2] = NULL;
+	double_free(game->x_map);
 }
 
 void	map_cover_b(t_cub3d *game)

@@ -6,7 +6,7 @@
 /*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 21:05:09 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/09/02 13:39:17 by bkarlida         ###   ########.fr       */
+/*   Updated: 2023/09/02 15:53:33 by bkarlida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,12 @@ int	key_press(int key_code, t_cub3d *game)
 		game->move[4] = 1;
 	else if (key_code == 124)
 		game->move[5] = 1;
+	else if (key_code == 18)
+		game->gun_flag = 1;
+	else if (key_code == 19)
+		game->gun_flag = 2;
+	else if (key_code == 20)
+		game->gun_flag = 3;
 	else if (key_code == 53)
 	{
 		color_print("Cub3d closed successfully!", 'g');

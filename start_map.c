@@ -6,7 +6,7 @@
 /*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 13:09:27 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/09/02 13:44:10 by bkarlida         ###   ########.fr       */
+/*   Updated: 2023/09/02 15:54:12 by bkarlida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	start_game(t_cub3d *game)
 	game->m_old_pos_y = HEIGHT / 2;
 	game->loc_x = WIDTH / 2;
 	game->loc_y = HEIGHT / 2;
+	game->gun_flag = 1;
 }
 
 void	map_x_control(t_cub3d *game)

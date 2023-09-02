@@ -6,7 +6,7 @@
 /*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 13:09:20 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/09/02 13:38:02 by bkarlida         ###   ########.fr       */
+/*   Updated: 2023/09/02 15:58:21 by bkarlida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,16 @@ void	player_first_rotate(t_cub3d *game)
 	}
 }
 
+void	gun_show(t_cub3d *game)
+{
+	if (game->gun_flag == 1)
+		mlx_put_image_to_window(game->mlx, game->img.window, game->gun, 0, 0);
+	if (game->gun_flag == 2)
+		mlx_put_image_to_window(game->mlx, game->img.window, game->gun, 0, 0);
+	if (game->gun_flag == 3)
+		mlx_put_image_to_window(game->mlx, game->img.window, game->gun, 0, 0);
+}
+
 int	ft_game_loop(t_cub3d *game)
 {
 	if (game->lock)
@@ -100,7 +110,7 @@ int	ft_game_loop(t_cub3d *game)
 	print_mini_map(game);
 	print_player(game, game->x, game->y, game->scale);
 	mlx_put_image_to_window(game->mlx, game->img.window, game->img.image, 0, 0);
-	mlx_put_image_to_window(game->mlx, game->img.window, game->gun, 500, 600);
+	gun_show(game);
 	return (0);
 }
 
@@ -114,7 +124,11 @@ int	main(int ac, char **av)
 		start_game(game);
 		start_map(game, av[1]);
 		start_mlx(game);
-		game->gun = mlx_xpm_file_to_image(game->mlx, "textures/gun.xpm",
+		game->gun1 = mlx_xpm_file_to_image(game->mlx, "textures/lev.xpm",
+				&(game->gun_h), &(game->gun_w));
+		game->gun2 = mlx_xpm_file_to_image(game->mlx, "textures/pom.xpm",
+				&(game->gun_h), &(game->gun_w));
+		game->gun3 = mlx_xpm_file_to_image(game->mlx, "textures/tar.xpm",
 				&(game->gun_h), &(game->gun_w));
 		mlx_hook(game->img.window, 2, 0, key_press, game);
 		mlx_hook(game->img.window, 3, 0, key_release, game);
