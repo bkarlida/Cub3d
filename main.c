@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 13:09:20 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/09/02 20:02:34 by muerdoga         ###   ########.fr       */
+/*   Updated: 2023/09/02 20:13:04 by bkarlida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,19 @@ int	ft_game_loop(t_cub3d *game)
 	return (0);
 }
 
+int mouse_click(int button, int x, int y, t_cub3d *game)
+{
+    if (button == 1)
+	{ // Sağ tıklama butonu için 2 numarası kullanılır
+        printf("Mouse sağ tıklandı: x=%d, y=%d\n", x, y);
+        	mlx_put_image_to_window(game->mlx, game->img.window, game->gun4, 0, 0);
+
+    }
+	return(0);
+
+}
+
+
 int	main(int ac, char **av)
 {
 	t_cub3d	*game;
@@ -117,6 +130,7 @@ int	main(int ac, char **av)
 		mlx_hook(game->img.window, 2, 0, key_press, game);
 		mlx_hook(game->img.window, 3, 0, key_release, game);
 		mlx_hook(game->img.window, 17, 1L << 2, x_close, game);
+		mlx_mouse_hook(game->img.window, mouse_click, game);
 		mlx_loop_hook(game->mlx, &ft_game_loop, game);
 		free_map(game, game->map);
 		mlx_loop(game->mlx);

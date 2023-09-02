@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_mlx.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 21:03:13 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/09/02 18:45:30 by muerdoga         ###   ########.fr       */
+/*   Updated: 2023/09/02 20:11:28 by bkarlida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	start_mlx(t_cub3d *game)
 	game->gun2 = mlx_xpm_file_to_image(game->mlx, "textures/pom.xpm",
 			&(game->gun_h), &(game->gun_w));
 	game->gun3 = mlx_xpm_file_to_image(game->mlx, "textures/tar.xpm",
+			&(game->gun_h), &(game->gun_w));
+	game->gun4 = mlx_xpm_file_to_image(game->mlx, "textures/fire.xpm",
 			&(game->gun_h), &(game->gun_w));
 	mlx_mouse_move(game->img.window, WIDTH / 2, HEIGHT / 2);
 	mlx_mouse_hide();
