@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   calculator.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 14:33:21 by bkarlida          #+#    #+#             */
-/*   Updated: 2023/08/27 16:32:16 by muerdoga         ###   ########.fr       */
+/*   Updated: 2023/09/01 12:10:21 by bkarlida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	game_arithmetic(t_cub3d *game)
 	game->x = -1;
 	mlx_clear_window(game->mlx, game->img.window);
 	while (++(game->x) < WIDTH)
-	{ 
+	{
 		calc_frame_init(game);
 		calc_side_dist(game);
 		calc_wall_height(game);

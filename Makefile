@@ -2,7 +2,7 @@ SRCS = 	main.c start_map.c gnl/get_next_line.c gnl/get_next_line_utils.c \
 		map_utils1.c tools.c textures_utils.c  map_utils2.c	\
 		map_cover.c	mlx_set.c start_mlx.c mlx_key.c \
 		move.c calculator.c textures_pixel.c print_pixel.c \
-		rotate_mouse.c destroy_game.c
+		rotate_mouse.c destroy_game.c rotate.c
 OBJS = $(SRCS:.c=.o)
 CC = gcc
 MFLAGS = ./minilbx/libmlx.a

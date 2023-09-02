@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_key.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 21:05:09 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/08/27 12:05:54 by muerdoga         ###   ########.fr       */
+/*   Updated: 2023/09/02 13:39:17 by bkarlida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,20 @@ void	draw_pause(t_cub3d *game)
 	mlx_put_image_to_window(game->mlx, game->img.window, game->img.image, 0, 0);
 }
 
+void	key_press_v2(int key_code, t_cub3d *game)
+{
+	if (key_code == 35)
+	{
+		draw_pause(game);
+		game->lock = !game->lock;
+	}
+	if (game->lock == 0)
+	{
+		mlx_mouse_hide();
+		mlx_mouse_move(game->img.window, WIDTH / 2, HEIGHT / 2);
+	}
+}
+
 int	key_press(int key_code, t_cub3d *game)
 {
 	if (key_code == 13)
@@ -55,21 +69,12 @@ int	key_press(int key_code, t_cub3d *game)
 		game->move[4] = 1;
 	else if (key_code == 124)
 		game->move[5] = 1;
-    else if (key_code == 53)
+	else if (key_code == 53)
 	{
-        color_print("Cub3d closed successfully!", 'g');
-	    exit(EXIT_SUCCESS);
-    }
-	if (key_code == 35)
-	{
-		draw_pause(game);
-		game->lock = !game->lock;
+		color_print("Cub3d closed successfully!", 'g');
+		exit(EXIT_SUCCESS);
 	}
-	if (game->lock == 0)
-	{
-		mlx_mouse_hide();
-		mlx_mouse_move(game->img.window, WIDTH / 2, HEIGHT / 2);
-	}
+	key_press_v2(key_code, game);
 	return (0);
 }
 

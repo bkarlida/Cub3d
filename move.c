@@ -3,53 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 16:03:12 by bkarlida          #+#    #+#             */
-/*   Updated: 2023/08/27 17:45:42 by muerdoga         ###   ########.fr       */
+/*   Updated: 2023/09/02 13:34:25 by bkarlida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	rotate_left(t_cub3d *game)
-{
-	double	old_dir_x;
-	double	old_plane_x;
-
-	old_dir_x = game->player.dir_x;
-	old_plane_x = game->player.plane_x;
-	game->player.dir_x = game->player.dir_x * cos(-game->player.rot_speed)
-		- game->player.dir_y * sin(-game->player.rot_speed);
-	game->player.dir_y = old_dir_x * sin(-game->player.rot_speed)
-		+ game->player.dir_y * cos(-game->player.rot_speed);
-	game->player.plane_x = game->player.plane_x * cos(-game->player.rot_speed)
-		- game->player.plane_y * sin(-game->player.rot_speed);
-	game->player.plane_y = old_plane_x * sin(-game->player.rot_speed)
-		+ game->player.plane_y * cos(-game->player.rot_speed);
-}
-
-void	rotate_right(t_cub3d *game)
-{
-	double	old_dir_x;
-	double	old_plane_x;
-
-	old_dir_x = game->player.dir_x;
-	old_plane_x = game->player.plane_x;
-	game->player.dir_x = game->player.dir_x * cos(game->player.rot_speed)
-		- game->player.dir_y * sin(game->player.rot_speed);
-	game->player.dir_y = old_dir_x * sin(game->player.rot_speed)
-		+ game->player.dir_y * cos(game->player.rot_speed);
-	game->player.plane_x = game->player.plane_x * cos(game->player.rot_speed)
-		- game->player.plane_y * sin(game->player.rot_speed);
-	game->player.plane_y = old_plane_x * sin(game->player.rot_speed)
-		+ game->player.plane_y * cos(game->player.rot_speed);
-}
-
 void	move_forward(t_cub3d *game)
 {
-	printf("AAAA : %c\n", game->b_map[(int)game->player.y][(int)(game->player.x
-		+ game->player.dir_x * game->player.speed)]);
 	if (game->b_map[(int)game->player.y][(int)(game->player.x
 		+ game->player.dir_x * game->player.speed)] == '0')
 		game->player.x += game->player.dir_x * game->player.speed;
@@ -70,8 +34,8 @@ void	move_back(t_cub3d *game)
 
 void	move_left(t_cub3d *game)
 {
-	if (game->b_map[(int)game->player.y][(int)(game->player.x + game->player.dir_y
-		* game->player.speed)] == '0')
+	if (game->b_map[(int)game->player.y][(int)(game->player.x
+		+ game->player.dir_y * game->player.speed)] == '0')
 		game->player.x += game->player.dir_y * game->player.speed;
 	if (game->b_map[(int)(game->player.y - game->player.dir_x
 			* game->player.speed)][(int)(game->player.x)] == '0')
@@ -80,8 +44,8 @@ void	move_left(t_cub3d *game)
 
 void	move_right(t_cub3d *game)
 {
-	if (game->b_map[(int)game->player.y][(int)(game->player.x - game->player.dir_y
-		* game->player.speed)] == '0')
+	if (game->b_map[(int)game->player.y][(int)(game->player.x
+		- game->player.dir_y * game->player.speed)] == '0')
 		game->player.x -= game->player.dir_y * game->player.speed;
 	if (game->b_map[(int)(game->player.y + game->player.dir_x
 			* game->player.speed)][(int)(game->player.x)] == '0')
@@ -90,10 +54,9 @@ void	move_right(t_cub3d *game)
 
 void	player_move(t_cub3d *game)
 {
-    game->b_map[(int)game->player.y][(int)game->player.x] = '0';
-	if ((game->move[0] || game->move[1])
-		&& (game->move[2] || game->move[3]))
-	game->player.speed = 0.06 / sqrt(2);
+	game->b_map[(int)game->player.y][(int)game->player.x] = '0';
+	if ((game->move[0] || game->move[1]) && (game->move[2] || game->move[3]))
+		game->player.speed = 0.06 / sqrt(2);
 	else
 		game->player.speed = 0.06;
 	if (game->move[0] == 1)

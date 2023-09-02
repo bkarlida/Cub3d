@@ -6,20 +6,18 @@
 /*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 19:24:11 by bkarlida          #+#    #+#             */
-/*   Updated: 2023/08/26 19:25:24 by bkarlida         ###   ########.fr       */
+/*   Updated: 2023/09/01 20:24:09 by bkarlida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-
 
 unsigned int	get_pixel_in_tex(t_texture tex, int x, int y)
 {
 	char	*dst;
 
 	dst = tex.data + (y * tex.sizeline + x * (tex.bpp / 8));
-	return (*((unsigned int *) dst));
+	return (*((unsigned int *)dst));
 }
 
 int	create_trgb(int t, int r, int g, int b)
@@ -45,7 +43,7 @@ void	calc_texture_pixel_color(t_cub3d *game)
 				game->sky.g, game->sky.b));
 	else if (game->y >= game->draw_start && game->y <= game->draw_end)
 	{
-		tex_y = (int) game->tex_pos & (TEX_H - 1);
+		tex_y = (int)game->tex_pos & (TEX_H - 1);
 		game->tex_pos += game->step;
 		if (game->side == 0 && game->ray_dir_x > 0)
 			color = get_pixel_in_tex(game->north, game->tex_x, tex_y);
