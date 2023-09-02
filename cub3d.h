@@ -6,7 +6,7 @@
 /*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 12:32:17 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/09/02 20:10:38 by bkarlida         ###   ########.fr       */
+/*   Updated: 2023/09/02 20:18:48 by bkarlida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,4 +177,5 @@ int				is_user_char(int c);
 void			map_char_control(t_cub3d *game);
 void			map_char_control_utils(t_cub3d *g, int *m, int *i, int *c);
 void			gun_show(t_cub3d *game);
+int				mouse_click(int button, int x, int y, t_cub3d *game);
 #endif

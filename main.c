@@ -6,7 +6,7 @@
 /*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 13:09:20 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/09/02 20:13:04 by bkarlida         ###   ########.fr       */
+/*   Updated: 2023/09/02 20:18:57 by bkarlida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,19 +103,6 @@ int	ft_game_loop(t_cub3d *game)
 	gun_show(game);
 	return (0);
 }
-
-int mouse_click(int button, int x, int y, t_cub3d *game)
-{
-    if (button == 1)
-	{ // Sağ tıklama butonu için 2 numarası kullanılır
-        printf("Mouse sağ tıklandı: x=%d, y=%d\n", x, y);
-        	mlx_put_image_to_window(game->mlx, game->img.window, game->gun4, 0, 0);
-
-    }
-	return(0);
-
-}
-
 
 int	main(int ac, char **av)
 {
