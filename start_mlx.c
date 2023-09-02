@@ -6,7 +6,7 @@
 /*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 21:03:13 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/09/02 20:19:09 by bkarlida         ###   ########.fr       */
+/*   Updated: 2023/09/02 21:28:36 by bkarlida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	gun_show(t_cub3d *game)
 
 int	mouse_click(int button, int x, int y, t_cub3d *game)
 {
-	if (button == 1)
+	if (button == 1 && game->lock == 0)
 	{
 		mlx_put_image_to_window(game->mlx, game->img.window, game->gun4, 0, 0);
 	}

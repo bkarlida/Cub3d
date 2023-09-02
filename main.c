@@ -6,7 +6,7 @@
 /*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 13:09:20 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/09/02 20:18:57 by bkarlida         ###   ########.fr       */
+/*   Updated: 2023/09/02 21:23:29 by bkarlida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ int	main(int ac, char **av)
 		mlx_loop(game->mlx);
 	}
 	else
-		color_print("number of erroneous parameters", 'r');
+		color_print_exit("number of erroneous parameters", 'r');
 	mlx_destroy_window(game->mlx, game->img.window);
 	mlx_destroy_image(game->mlx, game->img.image);
 	return (0);
