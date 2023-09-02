@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 13:09:20 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/09/02 15:58:21 by bkarlida         ###   ########.fr       */
+/*   Updated: 2023/09/02 15:59:54 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,11 @@ void	player_first_rotate(t_cub3d *game)
 void	gun_show(t_cub3d *game)
 {
 	if (game->gun_flag == 1)
-		mlx_put_image_to_window(game->mlx, game->img.window, game->gun, 0, 0);
+		mlx_put_image_to_window(game->mlx, game->img.window, game->gun1, 0, 0);
 	if (game->gun_flag == 2)
-		mlx_put_image_to_window(game->mlx, game->img.window, game->gun, 0, 0);
+		mlx_put_image_to_window(game->mlx, game->img.window, game->gun2, 0, 0);
 	if (game->gun_flag == 3)
-		mlx_put_image_to_window(game->mlx, game->img.window, game->gun, 0, 0);
+		mlx_put_image_to_window(game->mlx, game->img.window, game->gun3, 0, 0);
 }
 
 int	ft_game_loop(t_cub3d *game)
