@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_key.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 21:05:09 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/09/02 15:53:33 by bkarlida         ###   ########.fr       */
+/*   Updated: 2023/09/02 18:59:21 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	draw_pause(t_cub3d *game)
 			put_px_img(game, i, j, create_trgb(50, 255, 255, 255));
 	}
 	mlx_put_image_to_window(game->mlx, game->img.window, game->img.image, 0, 0);
+	gun_show(game);
 }
 
 void	key_press_v2(int key_code, t_cub3d *game)

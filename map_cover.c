@@ -6,7 +6,7 @@
 /*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 17:09:44 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/09/02 18:34:28 by muerdoga         ###   ########.fr       */
+/*   Updated: 2023/09/02 18:42:07 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,6 @@ void	map_cover_b_utils(t_cub3d *game, char *temp)
 	while (++j < game->max_size + 4)
 		game->b_map[y + 1][j] = 'B';
 	game->b_map[y + 1][game->max_size + 4] = '\0';
-	free(game->b_map[y + 2]);
-	game->b_map[y + 2] = NULL;
 }
 
 void	map_cover_b(t_cub3d *game)

@@ -6,7 +6,7 @@
 /*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 13:09:20 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/09/02 18:37:15 by muerdoga         ###   ########.fr       */
+/*   Updated: 2023/09/02 19:38:38 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,16 +79,6 @@ void	player_first_rotate(t_cub3d *game)
 	}
 }
 
-void	gun_show(t_cub3d *game)
-{
-	if (game->gun_flag == 1)
-		mlx_put_image_to_window(game->mlx, game->img.window, game->gun1, 0, 0);
-	if (game->gun_flag == 2)
-		mlx_put_image_to_window(game->mlx, game->img.window, game->gun2, 0, 0);
-	if (game->gun_flag == 3)
-		mlx_put_image_to_window(game->mlx, game->img.window, game->gun3, 0, 0);
-}
-
 int	ft_game_loop(t_cub3d *game)
 {
 	if (game->lock)
@@ -124,12 +114,6 @@ int	main(int ac, char **av)
 		start_game(game);
 		start_map(game, av[1]);
 		start_mlx(game);
-		game->gun1 = mlx_xpm_file_to_image(game->mlx, "textures/lev.xpm",
-				&(game->gun_h), &(game->gun_w));
-		game->gun2 = mlx_xpm_file_to_image(game->mlx, "textures/pom.xpm",
-				&(game->gun_h), &(game->gun_w));
-		game->gun3 = mlx_xpm_file_to_image(game->mlx, "textures/tar.xpm",
-				&(game->gun_h), &(game->gun_w));
 		mlx_hook(game->img.window, 2, 0, key_press, game);
 		mlx_hook(game->img.window, 3, 0, key_release, game);
 		mlx_hook(game->img.window, 17, 1L << 2, x_close, game);
@@ -138,9 +122,7 @@ int	main(int ac, char **av)
 		mlx_loop(game->mlx);
 	}
 	else
-	{ 
 		color_print("number of erroneous parameters", 'r');
-	}
 	mlx_destroy_window(game->mlx, game->img.window);
 	mlx_destroy_image(game->mlx, game->img.image);
 	return (0);

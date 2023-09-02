@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures_pixel.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 19:24:11 by bkarlida          #+#    #+#             */
-/*   Updated: 2023/09/01 20:24:09 by bkarlida         ###   ########.fr       */
+/*   Updated: 2023/09/02 19:39:57 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,6 @@ void	calc_texture_pixel_color(t_cub3d *game)
 		put_px_img(game, game->x, game->y, color);
 	}
 	else
-		put_px_img(game, game->x, game->y, create_trgb(0, game->floor.r,
+		put_px_img(game, game->x, game->y , create_trgb(0, game->floor.r,
 				game->floor.g, game->floor.b));
 }

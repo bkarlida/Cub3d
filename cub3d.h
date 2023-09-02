@@ -6,7 +6,7 @@
 /*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 12:32:17 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/09/02 18:14:01 by muerdoga         ###   ########.fr       */
+/*   Updated: 2023/09/02 18:47:48 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,5 +174,6 @@ void			map_height(t_cub3d *game);
 void			color_print_exit(char *msg, char color);
 int				is_user_char(int c);
 void			map_char_control(t_cub3d *game);
-void			map_char_control_utils(t_cub3d *game, int *map_index, int *i, int *c);
+void			map_char_control_utils(t_cub3d *g, int *m, int *i, int *c);
+void			gun_show(t_cub3d *game);
 #endif
