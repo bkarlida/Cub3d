@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_pixel.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 19:28:35 by bkarlida          #+#    #+#             */
-/*   Updated: 2023/09/02 13:36:00 by bkarlida         ###   ########.fr       */
+/*   Updated: 2023/09/02 18:35:57 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	print_mini_map(t_cub3d *game)
 		{
 			if (game->b_map[(int)(mini_y / ((HEIGHT / game->scale)
 						/ (double)game->map_he))][(int)(mini_x / ((WIDTH
-							/ game->scale) / (double)game->map_wd))] == '1')
+							/ game->scale) / (double)game->map_wd))] == '0')
 				put_px_img(game, mini_x + game->x, mini_y + game->y,
 					create_trgb(0, 190, 190, 190));
 			else

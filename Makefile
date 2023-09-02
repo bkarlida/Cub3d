@@ -4,7 +4,7 @@ SRCS = 	main.c start_map.c gnl/get_next_line.c gnl/get_next_line_utils.c \
 		move.c calculator.c textures_pixel.c print_pixel.c \
 		rotate_mouse.c destroy_game.c rotate.c
 OBJS = $(SRCS:.c=.o)
-CC = gcc
+CC = gcc -g
 MFLAGS = ./minilbx/libmlx.a
 LFLAGS = ./libft/libft.a
 AFLAGS =  -Wall -Wextra -Werror -I./minilbx -I./libft -g

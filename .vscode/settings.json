@@ -2,6 +2,10 @@
 	"files.associations": {
 		"__mutex_base": "c",
 		"memory": "c",
-		"mutex": "c"
+		"mutex": "c",
+		"__hash_table": "c",
+		"array": "c",
+		"string_view": "c",
+		"unordered_map": "c"
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 12:32:17 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/09/02 16:07:32 by muerdoga         ###   ########.fr       */
+/*   Updated: 2023/09/02 18:14:01 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # include <fcntl.h>
 # include "minilbx/mlx.h"
 # include <math.h>
+# include <string.h>
 
 typedef struct s_img{
 	void	*window;
