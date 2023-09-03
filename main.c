@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 13:09:20 by muerdoga          #+#    #+#             */
-/*   Updated: 2023/09/02 21:23:29 by bkarlida         ###   ########.fr       */
+/*   Updated: 2023/09/03 15:05:21 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,6 @@ int	ft_game_loop(t_cub3d *game)
 	if (game->loc_x - game->m_old_pos_x != 0)
 		rotate_with_mouse(game);
 	mlx_mouse_move(game->img.window, WIDTH / 2, HEIGHT / 2);
-	game->m_old_pos_x = WIDTH / 2;
-	game->m_old_pos_y = HEIGHT / 2;
 	game->loc_x = WIDTH / 2;
 	game->loc_y = HEIGHT / 2;
 	game->map_wd = ft_strlen(game->b_map[0]);

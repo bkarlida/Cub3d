@@ -6,7 +6,7 @@
 /*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 14:33:21 by bkarlida          #+#    #+#             */
-/*   Updated: 2023/09/02 19:42:10 by muerdoga         ###   ########.fr       */
+/*   Updated: 2023/09/03 15:27:48 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,20 +84,20 @@ void	calc_wall_height(t_cub3d *game)
 	game->line_height = (int)(HEIGHT / game->perp_wall_dist);
 }
 
-void	calc_wall_x(t_cub3d *game)
-{
-	game->draw_start = -game->line_height / 2 + HEIGHT / 2;
-	if (game->draw_start < 0)
-		game->draw_start = 0;
-	game->draw_end = game->line_height / 2 + HEIGHT / 2;
-	if (game->draw_end >= HEIGHT)
-		game->draw_end = HEIGHT - 1;
-	if (game->side == 0)
-		game->wall_x = game->player.y + game->perp_wall_dist * game->ray_dir_y;
-	else
-		game->wall_x = game->player.x + game->perp_wall_dist * game->ray_dir_x;
-	game->wall_x -= floor(game->wall_x);
-}
+	void	calc_wall_x(t_cub3d *game)
+	{
+		game->draw_start = -game->line_height / 2 + HEIGHT / 2;
+		if (game->draw_start < 0)
+			game->draw_start = 0;
+		game->draw_end = game->line_height / 2 + HEIGHT / 2;
+		if (game->draw_end >= HEIGHT)
+			game->draw_end = HEIGHT - 1;
+		if (game->side == 0)
+			game->wall_x = game->player.y + game->perp_wall_dist * game->ray_dir_y;
+		else
+			game->wall_x = game->player.x + game->perp_wall_dist * game->ray_dir_x;
+		game->wall_x -= floor(game->wall_x);
+	}
 
 void	game_arithmetic(t_cub3d *game)
 {

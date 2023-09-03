@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate_mouse.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkarlida <bkarlida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: muerdoga <muerdoga@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 19:49:16 by bkarlida          #+#    #+#             */
-/*   Updated: 2023/09/02 11:33:16 by bkarlida         ###   ########.fr       */
+/*   Updated: 2023/09/03 15:04:49 by muerdoga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,8 @@ void	rotate_with_mouse(t_cub3d *game)
 	double	old_plane_x;
 	double	rot_x;
 
-	if (game->loc_x - game->m_old_pos_x > 0)
-		rot_x = game->player.rot_speed * ((game->loc_x - game->m_old_pos_x)
-				/ 10.0);
-	else
-		rot_x = game->player.rot_speed * ((game->loc_x - game->m_old_pos_x)
+	
+	rot_x = game->player.rot_speed * ((game->loc_x - game->m_old_pos_x)
 				/ 10.0);
 	old_dir_x = game->player.dir_x;
 	old_plane_x = game->player.plane_x;
