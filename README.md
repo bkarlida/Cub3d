@@ -2,7 +2,7 @@
 
 
 
-![Örnek Fotoğraf](https://github.com/bkarlida/Cub3d/edit/master/Screenshot 2023-10-25 at 01.11.26.png)
+![Örnek Fotoğraf](https://github.com/bkarlida/Cub3d/Screenshot 2023-10-25 at 01.11.26.png)
 
 
 
