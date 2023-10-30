@@ -1,6 +1,7 @@
 # Cub3D Projesi Açıklaması
 
 
+<img src="https://github.com/bkarlida/Cub3d/blob/master/Screenshot%202023-10-25%20at%2001.11.26.png" width="500">
 
 Cub3D projesi, 3D oyun motoru geliştirmeyi amaçlayan bir projedir. Proje, aşağıdaki temel bileşenleri içerir:
 
